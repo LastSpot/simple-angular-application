@@ -1,0 +1,75 @@
+<div class="product-detail-container fade-in">
+  @if (product) {
+    <div class="breadcrumbs">
+      <a (click)="goBack()">Products</a>
+      <span class="separator">›</span>
+      <span class="current">{{ product.name }}</span>
+    </div>
+    
+    <div class="product-detail">
+      <div class="product-image-container">
+        <div class="product-badge" [ngClass]="getBadgeClass()">{{ getBadgeText() }}</div>
+        <div class="product-image">{{ product.name.charAt(0) }}</div>
+      </div>
+      
+      <div class="product-info">
+        <h1>{{ product.name }}</h1>
+        <div class="price">${{ product.price.toFixed(2) }}</div>
+        
+        <div class="rating">
+          <span class="stars">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star half">★</span>
+          </span>
+          <span class="count">(24 reviews)</span>
+        </div>
+        
+        <div class="description">
+          <h3>Description</h3>
+          <p>{{ product.description }}</p>
+        </div>
+        
+        <div class="product-actions">
+          <div class="quantity">
+            <button class="qty-btn">-</button>
+            <input type="number" min="1" value="1">
+            <button class="qty-btn">+</button>
+          </div>
+          
+          <button class="add-to-cart">Add to Cart</button>
+          <button class="favorite">❤</button>
+        </div>
+        
+        <div class="product-meta">
+          <div class="meta-item">
+            <span class="meta-label">Free shipping</span>
+            <span class="meta-value">On orders over $50</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">In Stock</span>
+            <span class="meta-value">Ready to ship</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Guaranteed</span>
+            <span class="meta-value">30 day money back</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="back-link">
+      <button class="back-button" (click)="goBack()">
+        <span class="back-icon">←</span>
+        Back to Products
+      </button>
+    </div>
+  } @else {
+    <div class="loading">
+      <div class="spinner"></div>
+      <p>Loading product details...</p>
+    </div>
+  }
+</div>

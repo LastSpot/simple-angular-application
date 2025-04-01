@@ -1,0 +1,43 @@
+<div class="product-list-container">
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Discover Quality Products</h1>
+      <p>Explore our collection of premium products designed for quality and performance.</p>
+      <div class="search-bar">
+        <input type="text" placeholder="Search products...">
+        <button>Search</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section">
+    <div class="section-header">
+      <h2>Featured Products</h2>
+      <div class="filter-options">
+        <button class="filter-button active">All</button>
+        <button class="filter-button">Popular</button>
+        <button class="filter-button">New</button>
+        <button class="filter-button">Price</button>
+      </div>
+    </div>
+    
+    <div class="product-grid">
+      @for (product of products; track product.id) {
+        <div class="product-item slide-up">
+          <app-product-card 
+            [product]="product" 
+            (productSelected)="onProductSelected($event)">
+          </app-product-card>
+        </div>
+      } @empty {
+        <div class="no-products">
+          <div class="empty-state">
+            <div class="icon">📦</div>
+            <p>No products available at the moment.</p>
+            <button>Refresh</button>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+</div>

@@ -1,0 +1,17 @@
+<div class="product-card">
+  <div class="badge" [ngClass]="getBadgeClass()">{{ getBadgeText() }}</div>
+  <div class="image-container">
+    <div class="product-image">{{ product.name.charAt(0) }}</div>
+  </div>
+  <div class="product-content">
+    <h3>{{ product.name }}</h3>
+    <p class="price">${{ product.price.toFixed(2) }}</p>
+    <p class="description">{{ product.description }}</p>
+    <div class="product-actions">
+      <button class="view-button" (click)="onSelect()">View Details</button>
+      <button class="add-button" title="Add to cart">
+        <span>+</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Smartphone X",
+    "price": 799.99,
+    "description": "Latest smartphone with cutting-edge features and a powerful camera system."
+  },
+  {
+    "id": 2,
+    "name": "Laptop Pro",
+    "price": 1299.99,
+    "description": "High-performance laptop perfect for professionals and creative work."
+  },
+  {
+    "id": 3,
+    "name": "Wireless Headphones",
+    "price": 199.99,
+    "description": "Premium noise-cancelling headphones with exceptional sound quality."
+  },
+  {
+    "id": 4,
+    "name": "Smart Watch",
+    "price": 349.99,
+    "description": "Feature-rich smartwatch with health monitoring and app support."
+  },
+  {
+    "id": 5,
+    "name": "Tablet Ultra",
+    "price": 499.99,
+    "description": "Lightweight and powerful tablet with a stunning display for entertainment and productivity."
+  }
+] 
