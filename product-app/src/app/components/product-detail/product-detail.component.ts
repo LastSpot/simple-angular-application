@@ -4,6 +4,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/product';
 
+/**
+ * ProductDetailComponent
+ * 
+ * Displays detailed information about a selected product.
+ * Shows product image, name, price, description, and actions.
+ * Retrieves product data based on ID from the URL route.
+ */
 @Component({
   selector: 'app-product-detail',
   standalone: true,
@@ -12,18 +19,33 @@ import { Product } from '../../models/product';
   styleUrl: './product-detail.component.scss'
 })
 export class ProductDetailComponent implements OnInit {
+  /** The product to display; undefined until data is loaded */
   product: Product | undefined;
 
+  /**
+   * Constructor
+   * @param route - ActivatedRoute to access URL parameters
+   * @param router - Router for navigation
+   * @param productService - Service to fetch product data
+   */
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private productService: ProductService
   ) {}
 
+  /**
+   * Lifecycle hook that runs on component initialization
+   * Fetches the product based on the ID from the route
+   */
   ngOnInit(): void {
     this.getProduct();
   }
 
+  /**
+   * Fetches the product data using the ID from the route
+   * If product not found, redirects to product list
+   */
   getProduct(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.productService.getProduct(id)
@@ -36,10 +58,17 @@ export class ProductDetailComponent implements OnInit {
       });
   }
 
+  /**
+   * Navigates back to the products list
+   */
   goBack(): void {
     this.router.navigate(['/products']);
   }
   
+  /**
+   * Determines the CSS class for the product badge based on price
+   * @returns CSS class name for the badge ('budget', 'premium', or 'standard')
+   */
   getBadgeClass(): string {
     if (this.product && this.product.price < 300) {
       return 'budget';
@@ -50,6 +79,10 @@ export class ProductDetailComponent implements OnInit {
     }
   }
   
+  /**
+   * Determines the text to display on the product badge based on price
+   * @returns Display text for the badge ('BUDGET', 'PREMIUM', or 'POPULAR')
+   */
   getBadgeText(): string {
     if (this.product && this.product.price < 300) {
       return 'BUDGET';

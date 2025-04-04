@@ -1,21 +1,44 @@
+<!-- 
+  Product Detail Component
+  
+  Displays comprehensive information about a single product including:
+  - Navigation breadcrumbs
+  - Product image with price category badge
+  - Product information (name, price, rating, description)
+  - Purchase actions (quantity selection, add to cart, favorite)
+  - Additional product metadata
+  - Navigation back to product list
+  - Loading state while fetching data
+-->
+
+<!-- Main container with fade-in animation -->
 <div class="product-detail-container fade-in">
+  <!-- Conditional rendering based on product data availability -->
   @if (product) {
+    <!-- Breadcrumb navigation -->
     <div class="breadcrumbs">
       <a (click)="goBack()">Products</a>
       <span class="separator">›</span>
       <span class="current">{{ product.name }}</span>
     </div>
     
+    <!-- Main product detail layout with image and info sections -->
     <div class="product-detail">
+      <!-- Product image section with badge -->
       <div class="product-image-container">
+        <!-- Dynamic price category badge -->
         <div class="product-badge" [ngClass]="getBadgeClass()">{{ getBadgeText() }}</div>
+        <!-- Product visual representation using first letter -->
         <div class="product-image">{{ product.name.charAt(0) }}</div>
       </div>
       
+      <!-- Product information section -->
       <div class="product-info">
+        <!-- Product name and price -->
         <h1>{{ product.name }}</h1>
         <div class="price">${{ product.price.toFixed(2) }}</div>
         
+        <!-- Product rating visualization (static in demo) -->
         <div class="rating">
           <span class="stars">
             <span class="star">★</span>
@@ -27,22 +50,27 @@
           <span class="count">(24 reviews)</span>
         </div>
         
+        <!-- Product description -->
         <div class="description">
           <h3>Description</h3>
           <p>{{ product.description }}</p>
         </div>
         
+        <!-- Purchase action controls -->
         <div class="product-actions">
+          <!-- Quantity selector -->
           <div class="quantity">
             <button class="qty-btn">-</button>
             <input type="number" min="1" value="1">
             <button class="qty-btn">+</button>
           </div>
           
+          <!-- Call to action buttons -->
           <button class="add-to-cart">Add to Cart</button>
           <button class="favorite">❤</button>
         </div>
         
+        <!-- Additional product metadata -->
         <div class="product-meta">
           <div class="meta-item">
             <span class="meta-label">Free shipping</span>
@@ -60,6 +88,7 @@
       </div>
     </div>
     
+    <!-- Back navigation button -->
     <div class="back-link">
       <button class="back-button" (click)="goBack()">
         <span class="back-icon">←</span>
@@ -67,6 +96,7 @@
       </button>
     </div>
   } @else {
+    <!-- Loading state while data is being fetched -->
     <div class="loading">
       <div class="spinner"></div>
       <p>Loading product details...</p>

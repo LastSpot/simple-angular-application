@@ -1,3 +1,11 @@
+/**
+ * Product Card Styles
+ *
+ * These styles define the appearance of individual product cards.
+ * The card features a badge, image, and content section with actions.
+ */
+
+/* Main card container */
 .product-card {
   background-color: white;
   border-radius: var(--border-radius);
@@ -9,6 +17,7 @@
   display: flex;
   flex-direction: column;
   
+  /* Hover effects for interactive feel */
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -18,6 +27,7 @@
     }
   }
   
+  /* Price category badge styling */
   .badge {
     position: absolute;
     top: 12px;
@@ -29,22 +39,26 @@
     z-index: 10;
     letter-spacing: 0.5px;
     
+    /* Budget price category */
     &.budget {
       background-color: var(--success-color);
       color: white;
     }
     
+    /* Standard price category */
     &.standard {
       background-color: var(--warning-color);
       color: white;
     }
     
+    /* Premium price category */
     &.premium {
       background-color: var(--secondary-color);
       color: white;
     }
   }
   
+  /* Container for product image */
   .image-container {
     overflow: hidden;
     height: 180px;
@@ -54,6 +68,7 @@
     justify-content: center;
   }
   
+  /* Product image placeholder using first letter */
   .product-image {
     width: 100%;
     height: 100%;
@@ -67,6 +82,7 @@
     transition: transform 0.4s ease;
   }
   
+  /* Container for product information */
   .product-content {
     padding: 20px;
     display: flex;
@@ -74,6 +90,7 @@
     flex-grow: 1;
   }
   
+  /* Product title styling */
   h3 {
     margin-top: 0;
     color: var(--gray-900);
@@ -81,6 +98,7 @@
     margin-bottom: 8px;
   }
   
+  /* Product price styling */
   .price {
     font-weight: bold;
     color: var(--primary-color);
@@ -88,19 +106,22 @@
     margin-bottom: 10px;
   }
   
+  /* Product description styling */
   .description {
     color: var(--gray-600);
     font-size: 0.9rem;
     line-height: 1.6;
     margin-bottom: 20px;
-    flex-grow: 1;
+    flex-grow: 1; /* Push action buttons to bottom */
   }
   
+  /* Container for action buttons */
   .product-actions {
     display: flex;
     gap: 10px;
     margin-top: auto;
     
+    /* View details button */
     .view-button {
       flex-grow: 1;
       display: flex;
@@ -111,6 +132,7 @@
       font-size: 0.9rem;
     }
     
+    /* Add to cart button (circular) */
     .add-button {
       width: 40px;
       height: 40px;
@@ -127,7 +149,7 @@
       }
       
       &:hover {
-        background-color: #d91473;
+        background-color: #d91473; /* Darker shade on hover */
       }
     }
   }

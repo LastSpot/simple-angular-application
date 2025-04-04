@@ -1,14 +1,41 @@
+<!-- 
+  Product Card Component
+  
+  Displays an individual product in a card format with:
+  - Price category badge (budget, standard, premium) 
+  - Visual product representation
+  - Product information (name, price, description)
+  - Action buttons (view details, add to cart)
+-->
+
+<!-- Main card container with hover effects -->
 <div class="product-card">
+  <!-- Dynamic price category badge with conditional styling -->
   <div class="badge" [ngClass]="getBadgeClass()">{{ getBadgeText() }}</div>
+  
+  <!-- Product image container -->
   <div class="image-container">
+    <!-- Display first letter of product name as visual representation -->
     <div class="product-image">{{ product.name.charAt(0) }}</div>
   </div>
+  
+  <!-- Product information section -->
   <div class="product-content">
+    <!-- Product name -->
     <h3>{{ product.name }}</h3>
+    
+    <!-- Product price with formatting -->
     <p class="price">${{ product.price.toFixed(2) }}</p>
+    
+    <!-- Product description -->
     <p class="description">{{ product.description }}</p>
+    
+    <!-- Action buttons section -->
     <div class="product-actions">
+      <!-- Primary action button - emits event to parent component -->
       <button class="view-button" (click)="onSelect()">View Details</button>
+      
+      <!-- Secondary action button (non-functional in demo) -->
       <button class="add-button" title="Add to cart">
         <span>+</span>
       </button>

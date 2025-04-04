@@ -1,8 +1,25 @@
+/**
+ * Product List Component Styles
+ *
+ * Main styles for the product listing page, including:
+ * - Hero section with gradient background and search
+ * - Section headers with filter options
+ * - Product grid layout
+ * - Empty state handling
+ * - Responsive design adaptations
+ */
+
+/* Main container that holds all product list content */
 .product-list-container {
   width: 100%;
 }
 
+/* 
+ * Hero section with gradient background and decorative elements
+ * Features a headline, description, and search functionality
+ */
 .hero {
+  /* Gradient background with primary colors */
   background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
   color: white;
   border-radius: var(--border-radius);
@@ -11,6 +28,7 @@
   position: relative;
   overflow: hidden;
   
+  /* Decorative circular element in top right */
   &::before {
     content: '';
     position: absolute;
@@ -22,6 +40,7 @@
     border-radius: 50%;
   }
   
+  /* Decorative circular element in bottom left */
   &::after {
     content: '';
     position: absolute;
@@ -33,27 +52,32 @@
     border-radius: 50%;
   }
   
+  /* Content wrapper for hero section */
   .hero-content {
     position: relative;
-    z-index: 10;
+    z-index: 10; /* Ensure content appears above decorative elements */
     max-width: 600px;
     
+    /* Main headline */
     h1 {
       font-size: 2.5rem;
       margin-bottom: 16px;
       color: white;
     }
     
+    /* Subtitle/description text */
     p {
       font-size: 1.1rem;
       margin-bottom: 24px;
       opacity: 0.9;
     }
     
+    /* Search input with button */
     .search-bar {
       display: flex;
       max-width: 480px;
       
+      /* Text input field */
       input {
         flex-grow: 1;
         padding: 12px 16px;
@@ -62,11 +86,13 @@
         font-size: 1rem;
         font-family: inherit;
         
+        /* Remove outline on focus for custom styling */
         &:focus {
           outline: none;
         }
       }
       
+      /* Search button */
       button {
         padding: 12px 24px;
         border: none;
@@ -77,6 +103,7 @@
         cursor: pointer;
         transition: background-color 0.3s ease;
         
+        /* Darker color on hover */
         &:hover {
           background-color: #d91473;
         }
@@ -85,19 +112,25 @@
   }
 }
 
+/* 
+ * Main products section containing the product grid and filters
+ */
 .products-section {
+  /* Header with title and filter options */
   .section-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 24px;
     
+    /* Section title with underline accent */
     h2 {
       font-size: 1.8rem;
       margin: 0;
       color: var(--gray-900);
       position: relative;
       
+      /* Colored underline accent */
       &::after {
         content: '';
         position: absolute;
@@ -109,10 +142,12 @@
       }
     }
     
+    /* Filter buttons container */
     .filter-options {
       display: flex;
       gap: 8px;
       
+      /* Individual filter button */
       .filter-button {
         background-color: var(--gray-200);
         color: var(--gray-700);
@@ -123,6 +158,7 @@
         cursor: pointer;
         transition: all 0.2s ease;
         
+        /* Hover and active states */
         &:hover, &.active {
           background-color: var(--primary-color);
           color: white;
@@ -131,30 +167,39 @@
     }
   }
   
+  /* 
+   * Responsive grid layout for products
+   * Uses auto-fill to adjust columns based on available width
+   */
   .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 24px;
     
+    /* Staggered animation for grid items */
     .product-item {
       animation-delay: calc(var(--animation-order) * 0.1s);
     }
   }
   
+  /* Empty state styling when no products are available */
   .no-products {
-    grid-column: 1 / -1;
+    grid-column: 1 / -1; /* Span all columns */
     
+    /* Empty state container */
     .empty-state {
       background-color: white;
       border-radius: var(--border-radius);
       padding: 60px 20px;
       text-align: center;
       
+      /* Icon for empty state */
       .icon {
         font-size: 3rem;
         margin-bottom: 16px;
       }
       
+      /* Empty state message */
       p {
         color: var(--gray-600);
         margin-bottom: 24px;
@@ -163,24 +208,30 @@
   }
 }
 
+/* 
+ * Responsive adaptations for smaller screens
+ */
 @media (max-width: 768px) {
+  /* Adjust hero section for mobile */
   .hero {
     padding: 40px 20px;
     
     .hero-content {
       h1 {
-        font-size: 2rem;
+        font-size: 2rem; /* Smaller headline on mobile */
       }
     }
   }
   
+  /* Adjust products section for mobile */
   .products-section {
     .section-header {
-      flex-direction: column;
+      flex-direction: column; /* Stack title and filters vertically */
       align-items: flex-start;
       gap: 16px;
     }
     
+    /* Allow horizontal scrolling for filters on small screens */
     .filter-options {
       width: 100%;
       overflow-x: auto;

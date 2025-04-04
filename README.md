@@ -1,4 +1,4 @@
-# Angular Product App - ShopSmart
+# Angular Product App
 
 This is a modern Angular application that demonstrates component-based architecture, services, routing, and basic API integration with mock data. The application features a responsive, visually appealing UI for browsing and viewing product details.
 

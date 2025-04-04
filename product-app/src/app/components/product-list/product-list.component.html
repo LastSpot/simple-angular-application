@@ -1,8 +1,11 @@
+<!-- Main container for the product list page -->
 <div class="product-list-container">
+  <!-- Hero section with search functionality -->
   <section class="hero">
     <div class="hero-content">
       <h1>Discover Quality Products</h1>
       <p>Explore our collection of premium products designed for quality and performance.</p>
+      <!-- Search bar (placeholder functionality) -->
       <div class="search-bar">
         <input type="text" placeholder="Search products...">
         <button>Search</button>
@@ -10,9 +13,12 @@
     </div>
   </section>
 
+  <!-- Main products section -->
   <section class="products-section">
+    <!-- Section header with title and filter options -->
     <div class="section-header">
       <h2>Featured Products</h2>
+      <!-- Filter buttons (placeholder functionality) -->
       <div class="filter-options">
         <button class="filter-button active">All</button>
         <button class="filter-button">Popular</button>
@@ -21,15 +27,19 @@
       </div>
     </div>
     
+    <!-- Product grid using Angular's for loop -->
     <div class="product-grid">
+      <!-- Loop through products array and create a card for each -->
       @for (product of products; track product.id) {
         <div class="product-item slide-up">
+          <!-- Product card component with input and output bindings -->
           <app-product-card 
             [product]="product" 
             (productSelected)="onProductSelected($event)">
           </app-product-card>
         </div>
       } @empty {
+        <!-- Empty state shown when no products are available -->
         <div class="no-products">
           <div class="empty-state">
             <div class="icon">📦</div>

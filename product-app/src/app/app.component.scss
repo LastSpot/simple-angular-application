@@ -1,9 +1,24 @@
+/**
+ * App Component Styles
+ *
+ * Main styles for the root application layout with:
+ * - Flexible container layout with full viewport height
+ * - Sticky header with responsive navigation
+ * - Content area that grows to fill available space
+ * - Breakpoints for mobile-friendly layout adjustments
+ */
+
+/* Main container for the application, using flex layout for full height */
 .app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
+/* 
+ * Header section with navigation and actions
+ * Fixed to top of viewport with elevation shadow
+ */
 header {
   background-color: white;
   color: var(--gray-900);
@@ -13,6 +28,7 @@ header {
   top: 0;
   z-index: 1000;
   
+  /* Content wrapper with centered max-width */
   .header-content {
     display: flex;
     align-items: center;
@@ -22,15 +38,18 @@ header {
     padding: 0.8rem 2rem;
   }
   
+  /* Site logo with icon and text */
   .logo {
     display: flex;
     align-items: center;
     gap: 10px;
     
+    /* Icon for the logo */
     .logo-icon {
       font-size: 1.5rem;
     }
     
+    /* Brand name text */
     h1 {
       font-size: 1.5rem;
       margin: 0;
@@ -39,16 +58,19 @@ header {
     }
   }
   
+  /* Main navigation links */
   nav {
     display: flex;
     gap: 1.5rem;
     
+    /* Individual navigation links */
     a {
       color: var(--gray-700);
       font-weight: 500;
       padding: 0.5rem 0;
       position: relative;
       
+      /* Animated underline effect for links */
       &::after {
         content: '';
         position: absolute;
@@ -60,9 +82,11 @@ header {
         transition: width 0.3s ease;
       }
       
+      /* Hover and active states for links */
       &:hover, &.active {
         color: var(--primary-color);
         
+        /* Expand the underline on hover/active */
         &::after {
           width: 100%;
         }
@@ -70,10 +94,12 @@ header {
     }
   }
   
+  /* Header action buttons (search, cart, etc) */
   .header-actions {
     display: flex;
     gap: 1rem;
     
+    /* Circular action buttons */
     button {
       background: transparent;
       color: var(--gray-700);
@@ -86,16 +112,19 @@ header {
       padding: 0;
       position: relative;
       
+      /* Hover state for buttons */
       &:hover {
         background-color: var(--gray-200);
         transform: none;
         box-shadow: none;
       }
       
+      /* Icon within button */
       span {
         font-size: 1.3rem;
       }
       
+      /* Notification badge (e.g., cart items count) */
       .badge {
         position: absolute;
         top: -5px;
@@ -115,97 +144,38 @@ header {
   }
 }
 
+/* 
+ * Main content area
+ * Grows to fill available space (now takes full remaining height since footer is removed)
+ */
 main {
   flex: 1;
-  padding: 40px 0;
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;
   padding: 40px 2rem;
 }
 
-footer {
-  background-color: var(--gray-900);
-  color: white;
-  padding: 0;
-  
-  .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 3rem 2rem;
-  }
-  
-  .footer-section {
-    h3 {
-      color: white;
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-      position: relative;
-      
-      &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -8px;
-        width: 40px;
-        height: 2px;
-        background-color: var(--primary-color);
-      }
-    }
-    
-    ul {
-      list-style: none;
-      padding: 0;
-      
-      li {
-        margin-bottom: 0.8rem;
-        
-        a {
-          color: var(--gray-400);
-          transition: color 0.3s ease;
-          
-          &:hover {
-            color: white;
-          }
-        }
-      }
-    }
-    
-    p {
-      color: var(--gray-400);
-      margin-bottom: 0.8rem;
-    }
-  }
-  
-  .footer-bottom {
-    background-color: rgba(0, 0, 0, 0.2);
-    padding: 1.5rem 0;
-    text-align: center;
-    
-    p {
-      margin: 0;
-      color: var(--gray-500);
-      font-size: 0.9rem;
-    }
-  }
-}
-
+/* 
+ * Responsive adjustments for mobile devices
+ * Reorganizes header elements for smaller screens
+ */
 @media (max-width: 768px) {
   header {
+    /* Stack header content vertically on mobile */
     .header-content {
       flex-direction: column;
       gap: 1rem;
       padding: 1rem;
     }
     
+    /* Center navigation on mobile */
     nav {
       width: 100%;
       justify-content: center;
     }
     
+    /* Center action buttons on mobile */
     .header-actions {
       width: 100%;
       justify-content: center;
